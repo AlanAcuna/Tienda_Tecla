@@ -1,0 +1,57 @@
+<%-include ("cabecera/cabecera" ,{tituloWeb: 'Modificar Producto'} )%>
+
+
+    <h1 class="p-3 text-center">Modificar Producto</h1>
+
+ 
+    <div class="table table table-hover  table-bordered  text-center " style="background-color: #cecece" >
+
+      <div class="card border-secondary">
+        <div class="card-header"><span class="d-none" id="idProducto"><%= result.producto_id %></span> <%= result.titulo %> </div>
+        <div class="card-body">
+          
+          <!-- referencia a ruta guardar creacion de usuario se hace un POST-->
+          <form id="nuevoForm" method="POST">
+            <div class="mb-3">
+              <label for="producto_name" class="form-label">Nombre del Producto</label>
+              <input required type="text" class="form-control" value="<%= result.titulo%>" id="producto_name" name="titulo" tabindex="1"/>
+            </div>
+
+            <div class="mb-3">
+                <label for="producto_precio" class="form-label">Precio</label>
+                <input required type="number" step="any" class="form-control" value="<%= result.precio %>" id="precio" name="precio" tabindex="2"/>
+            </div>
+
+            <div class="mb-3">
+                <label for="producto_imagen" class="form-label">URL Imagen</label>
+                <input required type="text" class="form-control" value="<%= result.imagen %>" id="producto_imagen" name="imagen" tabindex="3"/>
+            </div>
+  
+            <div class="mb-3">
+              <label for="producto_categoria" class="form-label">categoria</label>
+              <input required type="text" class="form-control" value="<%= result.categoria %>" id="producto_categoria" name="categoria" tabindex="4"/>
+            </div>
+
+            <div class="mb-3">
+                <label for="producto_cantidad" class="form-label">Cantidad</label>
+                <input required type="number" min="1" class="form-control" value="<%= result.inventario %>" id="producto_cantidad" name="cantidad" tabindex="5"/>
+            </div>
+            
+            <div class="mb-3">
+              <label for="producto_descripcion" class="form-label">Descripcion</label>
+              <input required type="text" class="form-control" value="<%= result.descripcion %>" id="producto_descripcion" name="descripcion" tabindex="5"/>
+            </div>
+
+            <button type="submit" class="btn btn-primary" tabindex="6">
+              Guardar
+            </button>
+            <a href="/listado" class="btn btn-secondary">Cancelar</a>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/actualizar.js"></script>
+    
+    <%-include ("cabecera/footer"  )%>
